@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INFO</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">My Portfolio</h2>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#chatbot">Ask Me</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button id="themeBtn" class="theme-btn">🌙</button>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+
+        <div class="home-content">
+            <p class="greeting">Hello, I'm</p>
+
+            <h1>Shaun Isaac Telen</h1>
+
+            <h2>BSCS2A</h2>
+
+            <p>
+            Helloo 
+            </p>
+
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+
+        <div class="profile">
+            <img src="123.jpg" alt="Profile picture">
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT ME -->
+    <section class="section" id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-content">
+
+            <p>
+                I enjoy learning new skills
+                and applying what I learn to real-world projects.
+            </p>
+
+            <p>
+                I am currently studying at <strong>LCC</strong>,
+                where I am taking computer science
+            </p>
+
+            <p>
+                One of my achievements is graduating senior high
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <span>🌐</span>
+                <h3>HTML</h3>
+                <p>Creating the structure of websites.</p>
+            </div>
+
+            <div class="skill-card">
+                <span>🎨</span>
+                <h3>CSS</h3>
+                <p>Designing responsive and attractive websites.</p>
+            </div>
+
+            <div class="skill-card">
+                <span>⚡</span>
+                <h3>JavaScript</h3>
+                <p>Adding interaction and functionality.</p>
+            </div>
+
+            <div class="skill-card">
+                <span>💻</span>
+                <h3>Python</h3>
+                <p>Writing programs and solving problems.</p>
+            </div>
+
+            <div class="skill-card">
+                <span>🗄️</span>
+                <h3>MySQL</h3>
+                <p>Managing and organizing databases.</p>
+            </div>
+
+            <div class="skill-card">
+                <span>🔧</span>
+                <h3>Git</h3>
+                <p>Managing and tracking project changes.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+                <h3>Mine games</h3>
+
+                <p>
+                    A game i created using
+                    HTML, CSS, and JavaScript. It is enjoyable game.
+                </p>
+
+                <span class="project-tech">
+                    HTML • CSS • JavaScript
+                </span>
+            </div>
+
+
+            <div class="project-card">
+                <h3>Student Management System</h3>
+
+                <p>
+                    A simple student management system designed to organize
+                    student information, records, and basic school data.
+                </p>
+
+                <span class="project-tech">
+                    HTML • CSS • JavaScript • MySQL
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ASK ABOUT ME / CHATBOT -->
+    <section class="section" id="chatbot">
+
+        <h2 class="section-title">Ask About Me</h2>
+
+        <div class="chatbot">
+
+            <div id="chatMessages" class="chat-messages">
+                <div class="bot-message">
+                    Hi! Ask me something about myself.
+                </div>
+            </div>
+
+            <div class="chat-input">
+
+                <input
+                    type="text"
+                    id="userQuestion"
+                    placeholder="Ask me a question..."
+                >
+
+                <button id="askBtn">Ask</button>
+
+            </div>
+
+            <div class="suggested-questions">
+
+                <button onclick="askSuggested('What are your skills?')">
+                    My Skills
+                </button>
+
+                <button onclick="askSuggested('What is your education?')">
+                    Education
+                </button>
+
+                <button onclick="askSuggested('What are your projects?')">
+                    Projects
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <h3>Get In Touch</h3>
+
+                <p>
+                    If you would like to contact me, you can send me
+                    an email or connect with me through my social media.
+                </p>
+
+                <p>
+                    📧
+                    <strong>Email:</strong>
+                    telen0006@gmail.com
+                </p>
+
+                <div class="social-links">
+
+                    <a href="https://www.facebook.com/" target="_blank">
+                        Facebook
+                    </a>
+
+                    <a href="https://www.instagram.com/" target="_blank">
+                        Instagram
+                    </a>
+
+                    <a href="https://www.linkedin.com/" target="_blank">
+                        LinkedIn
+                    </a>
+
+                    <a href="https://github.com/" target="_blank">
+                        GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <form id="contactForm" class="contact-form">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    id="message"
+                    rows="6"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button type="submit" class="btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 Shaun Telen. All Rights Reserved.
+        </p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
