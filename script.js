@@ -79,7 +79,7 @@ function getBotResponse(question) {
         question.includes("study")
     ) {
 
-        return "I am currently studying at Your School Name, where I am learning programming, web development, and information technology.";
+        return "I am currently studying at Lipa City College, where I am learning programming, web development, and information technology.";
 
     }
 
