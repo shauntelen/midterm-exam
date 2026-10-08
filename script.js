@@ -1,195 +1,211 @@
-
-/* =========================
-   LIGHT / DARK MODE
-========================= */
+// ===============================
+// DARK MODE / LIGHT MODE
+// ===============================
 
 const themeBtn = document.getElementById("themeBtn");
 
-themeBtn.addEventListener("click", () => {
+themeBtn.addEventListener("click", function () {
 
     document.body.classList.toggle("dark-mode");
 
     if (document.body.classList.contains("dark-mode")) {
         themeBtn.textContent = "☀️";
-        localStorage.setItem("theme", "dark");
     } else {
         themeBtn.textContent = "🌙";
-        localStorage.setItem("theme", "light");
     }
 
 });
 
 
-/* Remember the selected theme */
+// ===============================
+// CHATBOT
+// ===============================
 
-if (localStorage.getItem("theme") === "dark") {
-
-    document.body.classList.add("dark-mode");
-
-    themeBtn.textContent = "☀️";
-}
-
-
-/* =========================
-   CHATBOT
-========================= */
-
-const chatMessages = document.getElementById("chatMessages");
-const userQuestion = document.getElementById("userQuestion");
 const askBtn = document.getElementById("askBtn");
+const userQuestion = document.getElementById("userQuestion");
+const chatMessages = document.getElementById("chatMessages");
 
+function askQuestion() {
 
-function addMessage(message, type) {
-
-    const messageElement = document.createElement("div");
-
-    messageElement.classList.add(type);
-
-    messageElement.textContent = message;
-
-    chatMessages.appendChild(messageElement);
-
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-
-function getBotResponse(question) {
-
-    question = question.toLowerCase();
-
-
-    /* Question 1 - Skills */
-
-    if (
-        question.includes("skill") ||
-        question.includes("technology") ||
-        question.includes("technologies")
-    ) {
-
-        return "My skills include HTML, CSS, JavaScript, Python, MySQL, and Git.";
-
-    }
-
-
-    /* Question 2 - Education */
-
-    if (
-        question.includes("education") ||
-        question.includes("school") ||
-        question.includes("study")
-    ) {
-
-        return "I am currently studying at Lipa City College, where I am learning programming, web development, and information technology.";
-
-    }
-
-
-    /* Question 3 - Projects */
-
-    if (
-        question.includes("project") ||
-        question.includes("projects")
-    ) {
-
-        return "My sample projects include a Personal Portfolio Website and a Student Management System.";
-
-    }
-
-
-    /* Extra question - About */
-
-    if (
-        question.includes("about") ||
-        question.includes("who are you") ||
-        question.includes("yourself")
-    ) {
-
-        return "I am a student and aspiring web developer who enjoys creating websites and learning new technologies.";
-
-    }
-
-
-    /* Extra question - Contact */
-
-    if (
-        question.includes("contact") ||
-        question.includes("email")
-    ) {
-
-        return "You can contact me through yourname@email.com or through my social media accounts in the Contact section.";
-
-    }
-
-
-    return "Sorry, I don't know the answer to that question. Try asking about my skills, education, projects, or contact information.";
-}
-
-
-/* Ask button */
-
-askBtn.addEventListener("click", () => {
-
-    const question = userQuestion.value.trim();
+    let question = userQuestion.value.trim();
 
     if (question === "") {
         return;
     }
 
-    addMessage(question, "user-message");
+    // Display user's question
+    let userMessage = document.createElement("div");
+    userMessage.className = "user-message";
+    userMessage.textContent = question;
 
-    const response = getBotResponse(question);
+    chatMessages.appendChild(userMessage);
 
-    setTimeout(() => {
+    // Get chatbot answer
+    let answer = getAnswer(question);
 
-        addMessage(response, "bot-message");
+    // Display chatbot answer
+    let botMessage = document.createElement("div");
+    botMessage.className = "bot-message";
+    botMessage.textContent = answer;
 
-    }, 400);
+    chatMessages.appendChild(botMessage);
 
+    // Clear input
     userQuestion.value = "";
 
+    // Scroll to latest message
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+
+// ===============================
+// CHATBOT ANSWERS
+// ===============================
+
+function getAnswer(question) {
+
+    question = question.toLowerCase();
+
+    if (
+        question.includes("skill") ||
+        question.includes("skills")
+    ) {
+        return "My skills include HTML, CSS, JavaScript, Python, SQL, and Git.";
+    }
+
+    else if (
+        question.includes("education") ||
+        question.includes("school") ||
+        question.includes("study")
+    ) {
+        return "I am currently studying BS Computer Science at LCC.";
+    }
+
+    else if (
+        question.includes("project") ||
+        question.includes("projects")
+    ) {
+        return "My projects include a Guessing Game and a Payroll System using HTML, CSS, JavaScript, and MySQL.";
+    }
+
+    else if (
+        question.includes("name") ||
+        question.includes("who are you")
+    ) {
+        return "My name is Shaun Isaac Telen. I am a BSCS2A student interested in technology and programming.";
+    }
+
+    else if (
+        question.includes("course") ||
+        question.includes("degree")
+    ) {
+        return "I am taking Bachelor of Science in Computer Science.";
+    }
+
+    else if (
+        question.includes("html")
+    ) {
+        return "I use HTML to create the structure of websites.";
+    }
+
+    else if (
+        question.includes("css")
+    ) {
+        return "I use CSS to design websites and make them responsive and attractive.";
+    }
+
+    else if (
+        question.includes("javascript") ||
+        question.includes("js")
+    ) {
+        return "I use JavaScript to add interaction and functionality to websites.";
+    }
+
+    else if (
+        question.includes("python")
+    ) {
+        return "I use Python for programming, problem-solving, and creating applications.";
+    }
+
+    else if (
+        question.includes("contact") ||
+        question.includes("email")
+    ) {
+        return "You can contact me through my email at telen0006@gmail.com.";
+    }
+
+    else if (
+        question.includes("hello") ||
+        question.includes("hi") ||
+        question.includes("hey")
+    ) {
+        return "Hello! Nice to meet you. You can ask me about my skills, education, projects, or background.";
+    }
+
+    else if (
+        question.includes("hobby") ||
+        question.includes("hobbies")
+    ) {
+        return "I enjoy learning about technology, programming, creating websites, and developing applications.";
+    }
+
+    else {
+        return "Sorry, I don't know the answer to that yet. Try asking about my skills, education, projects, or contact information.";
+    }
+}
+
+
+// ===============================
+// ASK BUTTON
+// ===============================
+
+askBtn.addEventListener("click", function () {
+    askQuestion();
 });
 
 
-/* Allow Enter key */
+// ===============================
+// ENTER KEY
+// ===============================
 
-userQuestion.addEventListener("keypress", (event) => {
+userQuestion.addEventListener("keypress", function (event) {
 
     if (event.key === "Enter") {
-        askBtn.click();
+        askQuestion();
     }
 
 });
 
 
-/* Suggested questions */
+// ===============================
+// SUGGESTED QUESTIONS
+// ===============================
 
 function askSuggested(question) {
 
     userQuestion.value = question;
 
-    askBtn.click();
+    askQuestion();
 
 }
 
 
-/* =========================
-   CONTACT FORM
-========================= */
+// ===============================
+// CONTACT FORM
+// ===============================
 
 const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", (event) => {
+contactForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
     const name = document.getElementById("name").value;
 
     alert(
-        "Thank you, " + name +
-        "! Your message has been received."
+        "Thank you, " + name + "!\n\nYour message has been received."
     );
 
     contactForm.reset();
 
 });
-
